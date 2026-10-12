@@ -1,95 +1,115 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-using System;
-using System.IO;
-
-namespace ExceptionHandling
+namespace Assignment_3
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
+            // Write a C# program to reverse a string using for loop.
+            String s = "Softwaredeveloper";
 
-            try
+            for (int i = s.Length - 1; i >= 0; i--)
             {
-                int a = 10;
-                int b = 0;
-
-                Console.WriteLine(a / b);
-            }
-            catch (DivideByZeroException ex)
-            {
-                Console.WriteLine("DivideByZeroException: " + ex.Message);
+                Console.WriteLine(s[i]);
             }
 
+            // Write a C# program to check whether a string is palindrome or not.
+            string Name = "mayalam";
+            string rev = "";
 
-
-            try
+            for (int i = Name.Length - 1; i >= 0; i--)
             {
-                int[] numbers = { 10, 20, 30, 40, 60 };
-
-                Console.WriteLine(numbers[6]);
+                rev += Name[i];
             }
-            catch (IndexOutOfRangeException ex)
+            if (Name == rev)
             {
-                Console.WriteLine("IndexOutOfRangeException: " + ex.Message);
+                Console.WriteLine("The string is palindrome:" + Name);
             }
-
-
-
-            try
+            else
             {
-                string name = null;
-
-                Console.WriteLine(name.ToUpper());
-            }
-            catch (NullReferenceException ex)
-            {
-                Console.WriteLine("NullReferenceException: " + ex.Message);
+                Console.WriteLine("The string is not palindrome:" + Name);
             }
 
+            // Write a C# program to reverse the words in a given string.
+            string str = "I am a Software developer";
+            string[] words = str.Split(' ');
 
-
-            try
+            for (int i = words.Length - 1; i >= 0; i--)
             {
-                object value = "Ravi";
-
-                int number = (int)value;
+                Console.Write(words[i] + " ");
             }
-            catch (InvalidCastException ex)
+            //write a C# program to reverse each word in a given string.
+            string DEPt = "BE Computer Science and Engineering";
+            string[] CLG = DEPt.Split(' ');
+
+            foreach (string w in CLG)
             {
-                Console.WriteLine("InvalidCastException: " + ex.Message);
+
+                for (int i = w.Length - 1; i >= 0; i--)
+                {
+                    Console.Write(w[i]);
+                }
+
+                Console.Write(" ");
             }
+            //write a C# program to count the number of occurrences of each character in a string.
+            string stack = "DOTNET";
 
-
-
-            try
+            for (int i = 0; i < stack.Length; i++)
             {
-                string data = File.ReadAllText("newfile.txt");
+                int count = 0;
 
-                Console.WriteLine(data);
+                for (int j = 0; j < stack.Length; j++)
+                {
+                    if (stack[i] == stack[j])
+                    {
+                        count++;
+                    }
+                }
+
+                Console.WriteLine(stack[i] + " = " + count);
             }
-            catch (IOException ex)
+
+            //write a C# program to remove duplicate characters from a string.
+            string lang = "programming";
+            string result = "";
+
+            foreach (char ch in lang)
             {
-                Console.WriteLine("IOException: " + ex.Message);
+                if (!result.Contains(ch))
+                {
+                    result = result + ch;
+                }
             }
 
+            Console.WriteLine(result);
+            //write a C# program to print all the substrings of a given string.
+            string don = "Santhosh";
 
-
-            try
+            for (int i = 0; i < don.Length; i++)
             {
-                string[] names = new string[2];
+                for (int j = i; j < don.Length; j++)
+                {
+                    for (int k = i; k <= j; k++)
+                    {
+                        Console.Write(don[k]);
+                    }
 
-                object[] objects = names;
-
-                objects[0] = 1000;
+                    Console.WriteLine();
+                }
             }
-            catch (ArrayTypeMismatchException ex)
-            {
-                Console.WriteLine("ArrayTypeMismatchException: " + ex.Message);
-            }
 
 
-            Console.WriteLine("\nProgram completed.");
+
+
+
+
+
         }
     }
 }
